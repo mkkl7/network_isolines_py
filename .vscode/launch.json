@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "name": "Python: WSL",
+            "type": "python",
+            "request": "launch",
+            "program": "./isolines/isolines.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--links_file", "links_file.shp",
+                "--nodes_file", "nodes_file.shp",
+            ],
+        },
+        {
+            "name": "Docker: Isolines",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "python": {
+                "pathMappings": [
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/app"
+                    }
+                ],
+                "projectType": "general"
+            }
+        }
+    ]
+}
